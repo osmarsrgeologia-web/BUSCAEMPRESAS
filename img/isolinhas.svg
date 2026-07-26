@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" fill="none">
-  <g stroke="#12A5C4" stroke-width="1.1" fill="none" opacity="0.18">
+  <g stroke="#3E4C3A" stroke-width="1.1" fill="none" opacity="0.18">
     <path d="M-40 120 C120 60 260 180 420 130 C580 80 720 200 940 140"/>
     <path d="M-40 170 C120 110 260 230 420 180 C580 130 720 250 940 190"/>
     <path d="M-40 220 C120 160 260 280 420 230 C580 180 720 300 940 240"/>
@@ -8,7 +8,7 @@
     <path d="M-40 430 C160 380 240 490 440 450 C620 415 740 500 940 460"/>
     <path d="M-40 480 C160 430 240 540 440 500 C620 465 740 550 940 510"/>
   </g>
-  <g stroke="#0F2A4A" stroke-width="0.9" fill="none" opacity="0.10">
+  <g stroke="#04263F" stroke-width="0.9" fill="none" opacity="0.10">
     <path d="M-40 145 C120 85 260 205 420 155 C580 105 720 225 940 165"/>
     <path d="M-40 325 C140 275 250 385 430 345 C600 310 730 405 940 360"/>
     <path d="M-40 455 C160 405 240 515 440 475 C620 440 740 525 940 485"/>

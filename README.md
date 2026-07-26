@@ -53,9 +53,17 @@ O site é estático — sobe em qualquer hospedagem. Opções fáceis:
 |---|---|
 | **WhatsApp** (formato internacional, ex.: `5511915230152`) | `js/script.js`, variável `var WHATSAPP` no topo. Enquanto vazio, os botões avisam e o formulário cai para e-mail. |
 | **Imagens do higgsfield** | Rode `bash scripts/baixar-imagens.sh` na sua máquina (o ambiente onde o site foi gerado tem a saída para o CDN bloqueada). As imagens vão para `img/media/`. |
-| **Logotipo vetorizado** | Salve como `img/logo.svg` e troque o bloco marcado com `TODO` no `<header>` de cada página (`<img src="img/logo.svg" alt="Outorga Fácil">`). Gere também `img/apple-touch-icon.png` (180×180) e um `favicon.ico` a partir dele. Se a paleta do logo divergir, ajuste as cores no `:root` do `css/style.css`. |
 | **CNPJ** | Não foi incluído (não inventamos). Se quiser exibir, adicione no rodapé e no JSON-LD (`ProfessionalService`) das páginas. |
-| **apple-touch-icon.png** | Ainda não gerado (o ambiente não tinha conversor de imagem). Gere 180×180 a partir do logo/favicon. |
+
+### ✅ Já resolvido
+
+- **Logotipo aplicado** — `img/logo.svg` (colorido, no header) e `img/logo-branco.svg`
+  (versão monocromática branca vazada, no rodapé e na 404), sem alteração do vetor.
+- **Paleta ajustada ao logo** — navy `#04263F` + verde `#3E4C3A` (com sage `#9CBF95`
+  para destaques sobre navy). Editável no `:root` do `css/style.css`.
+- **Ícones gerados a partir do logo** — `img/favicon.svg`, `img/apple-touch-icon.png`
+  (180×180) e `img/icon-512.png` (512×512). Para um `favicon.ico` clássico, converta
+  o `favicon.svg` (opcional; navegadores modernos já usam o SVG).
 
 ## Imagens (higgsfield)
 
