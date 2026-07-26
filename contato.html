@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato — Solicite um Diagnóstico | Outorga Fácil</title>
+  <meta name="description" content="Fale com a Outorga Fácil. Conte a situação do seu poço e receba um diagnóstico sem compromisso: outorga, dispensa, CETESB e qualidade da água em todo o Estado de São Paulo.">
+  <link rel="canonical" href="https://outorgafacil.com.br/contato.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Outorga Fácil">
+  <meta property="og:title" content="Contato — Outorga Fácil">
+  <meta property="og:description" content="Conte a situação do seu poço e receba um diagnóstico sem compromisso.">
+  <meta property="og:url" content="https://outorgafacil.com.br/contato.html">
+  <meta property="og:image" content="https://outorgafacil.com.br/img/media/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="cabecalho">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="Outorga Fácil — início">
+        <span class="logo-marca">
+          <svg class="logo-simbolo" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect width="40" height="40" rx="11" fill="#0F2A4A"/>
+            <path d="M20 9c4.2 4.6 7 8.3 7 11.6A7 7 0 0 1 13 20.6C13 17.3 15.8 13.6 20 9Z" fill="#12A5C4"/>
+            <path d="M20 24.5a3.7 3.7 0 0 1-3.7-3.7" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="logo-texto">Outorga<span>Fácil</span><small>Regularização Hídrica</small></span>
+        </span>
+      </a>
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html" class="ativo">Contato</a>
+        <a href="#" class="btn btn-primario js-wpp" data-msg="Olá! Vim pelo site e gostaria de solicitar um diagnóstico do meu poço.">Solicitar diagnóstico</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO CURTO ============ -->
+  <section class="hero-curto">
+    <div class="isolinhas"></div>
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Início</a> · Contato</div>
+      <h1>Vamos conversar sobre o seu poço</h1>
+      <p>Preencha o formulário ou fale direto no WhatsApp. Conte a sua situação — recebeu notificação, quer regularizar, precisa renovar — e a nossa equipe retorna com os próximos passos.</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTATO ============ -->
+  <section class="secao">
+    <div class="container">
+      <div class="contato-grid">
+
+        <!-- Formulário -->
+        <div class="form-card">
+          <h2 style="font-size:1.5rem;margin-bottom:6px;">Solicitar diagnóstico</h2>
+          <p style="color:var(--texto-suave);margin-bottom:24px;">Sem compromisso. Ao enviar, montamos a sua mensagem no WhatsApp para agilizar o atendimento.</p>
+          <form id="form-contato" class="form-grid" novalidate>
+            <div class="form-linha">
+              <div class="campo">
+                <label for="nome">Nome <span class="req">*</span></label>
+                <input type="text" id="nome" name="nome" autocomplete="name" required>
+              </div>
+              <div class="campo">
+                <label for="telefone">Telefone / WhatsApp <span class="req">*</span></label>
+                <input type="tel" id="telefone" name="telefone" autocomplete="tel" placeholder="(11) 90000-0000" required>
+              </div>
+            </div>
+            <div class="form-linha">
+              <div class="campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" autocomplete="email">
+              </div>
+              <div class="campo">
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="cidade" autocomplete="address-level2">
+              </div>
+            </div>
+            <div class="campo">
+              <label for="assunto">Do que você precisa?</label>
+              <select id="assunto" name="assunto">
+                <option value="">Selecione…</option>
+                <option>Outorga de recursos hídricos</option>
+                <option>Dispensa de outorga</option>
+                <option>Licenciamento / parecer CETESB</option>
+                <option>Qualidade da água / Vigilância Sanitária</option>
+                <option>Recebi uma notificação</option>
+                <option>Não sei / preciso de orientação</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="mensagem">Conte a sua situação</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Ex.: tenho um poço há 10 anos sem outorga, recebi uma notificação do SP Águas com prazo de 30 dias…"></textarea>
+            </div>
+
+            <!-- honeypot anti-spam (não preencher) -->
+            <div class="honeypot" aria-hidden="true">
+              <label for="website">Não preencha este campo</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="campo" style="display:flex;gap:10px;align-items:flex-start;">
+              <input type="checkbox" id="consentimento" name="consentimento" style="width:auto;margin-top:5px;" required>
+              <label for="consentimento" style="font-weight:400;font-size:.9rem;color:var(--texto-suave);">
+                Concordo em ser contatado(a) e autorizo o uso dos meus dados para atender a esta solicitação, conforme a <a href="privacidade.html">Política de Privacidade</a>.
+              </label>
+            </div>
+
+            <div class="form-acoes">
+              <button type="submit" class="btn btn-primario">Enviar solicitação</button>
+              <a href="#" class="btn btn-wpp js-wpp" data-msg="Olá! Prefiro falar pelo WhatsApp sobre a regularização do meu poço.">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36c1.46.8 3.1 1.22 4.84 1.22 5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm0 18.02c-1.54 0-3.05-.42-4.36-1.2l-.31-.19-3.09.81.82-3.01-.2-.31a8 8 0 1 1 7.14 4.1Zm4.4-5.99c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.57.18 1.1.16 1.51.1.46-.07 1.43-.58 1.63-1.15.2-.57.2-1.06.14-1.15-.06-.1-.22-.16-.46-.28Z"/></svg>
+                Prefiro WhatsApp
+              </a>
+            </div>
+            <div class="form-msg" id="form-msg" role="status" aria-live="polite"></div>
+            <p class="form-nota">Seus dados são usados apenas para responder a este contato. Saiba mais na <a href="privacidade.html">Política de Privacidade</a>.</p>
+          </form>
+        </div>
+
+        <!-- Canais -->
+        <div>
+          <span class="kicker">Canais diretos</span>
+          <h2 style="font-size:1.5rem;margin-bottom:20px;">Fale com a gente</h2>
+          <div class="canais">
+            <div class="canal">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36c1.46.8 3.1 1.22 4.84 1.22 5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm4.4 12.03c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.57.18 1.1.16 1.51.1.46-.07 1.43-.58 1.63-1.15.2-.57.2-1.06.14-1.15-.06-.1-.22-.16-.46-.28Z"/></svg></div>
+              <div>
+                <h4>WhatsApp</h4>
+                <p><a href="#" class="js-wpp" data-msg="Olá! Vim pelo site da Outorga Fácil.">Iniciar conversa</a> <span style="color:var(--agua);">·</span> resposta rápida no horário comercial</p>
+              </div>
+            </div>
+            <div class="canal">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m3 6 9 7 9-7"/></svg></div>
+              <div>
+                <h4>E-mail</h4>
+                <p><a href="mailto:comercial@outorgafacil.com.br">comercial@outorgafacil.com.br</a></p>
+              </div>
+            </div>
+            <div class="canal">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div>
+              <div>
+                <h4>Instagram</h4>
+                <p><a href="https://www.instagram.com/outorgafaciloficial" target="_blank" rel="noopener">@outorgafaciloficial</a></p>
+              </div>
+            </div>
+            <div class="canal">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div>
+                <h4>Atendimento</h4>
+                <p>Base em Jundiaí-SP · atendemos todo o Estado de São Paulo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape-grid">
+        <div>
+          <div class="logo-rodape">
+            <svg class="logo-simbolo" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <rect width="40" height="40" rx="11" fill="#12A5C4"/>
+              <path d="M20 9c4.2 4.6 7 8.3 7 11.6A7 7 0 0 1 13 20.6C13 17.3 15.8 13.6 20 9Z" fill="#fff"/>
+            </svg>
+            <span class="logo-texto" style="color:#fff;">Outorga<span style="color:#3dbdd8;">Fácil</span></span>
+          </div>
+          <p class="desc">Soluções em Regularização Hídrica e Ambiental. Cuidamos da documentação do seu poço junto ao SP Águas, CETESB e Vigilância Sanitária, em todo o Estado de São Paulo.</p>
+          <div class="rodape-social">
+            <a href="https://www.instagram.com/outorgafaciloficial" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="privacidade.html">Privacidade</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="servicos.html#outorga">Outorga de água</a></li>
+            <li><a href="servicos.html#dispensa">Dispensa de outorga</a></li>
+            <li><a href="servicos.html#cetesb">Pareceres CETESB</a></li>
+            <li><a href="servicos.html#qualidade">Qualidade da água</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contato</h4>
+          <div class="contato-rodape">
+            <div class="l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4zM4 4l8 7 8-7"/></svg> <a href="mailto:comercial@outorgafacil.com.br">comercial@outorgafacil.com.br</a></div>
+            <div class="l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Jundiaí-SP · atende todo o Estado de SP</div>
+            <div class="l"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> <a href="https://www.instagram.com/outorgafaciloficial" target="_blank" rel="noopener">@outorgafaciloficial</a></div>
+          </div>
+        </div>
+      </div>
+      <p class="aviso">A outorga é uma exigência legal (Lei Federal 9.433/1997 e Lei Estadual 7.663/1991). A Outorga Fácil cuida da documentação e do acompanhamento do processo; a decisão sobre deferimento e os prazos de análise são de competência exclusiva dos órgãos públicos.</p>
+      <div class="rodape-base">
+        <span>© <span class="js-ano">2026</span> Outorga Fácil — Todos os direitos reservados.</span>
+        <span><a href="privacidade.html">Política de Privacidade</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="wpp-flut js-wpp" data-msg="Olá! Vim pelo site da Outorga Fácil." aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.48 1.34 5L2 22l5.2-1.36c1.46.8 3.1 1.22 4.84 1.22 5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm0 18.02c-1.54 0-3.05-.42-4.36-1.2l-.31-.19-3.09.81.82-3.01-.2-.31a8 8 0 1 1 7.14 4.1Zm4.4-5.99c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.57.18 1.1.16 1.51.1.46-.07 1.43-.58 1.63-1.15.2-.57.2-1.06.14-1.15-.06-.1-.22-.16-.46-.28Z"/></svg>
+  </a>
+
+  <div class="cookie-banner" id="cookie-banner">
+    <p>Usamos cookies para melhorar a sua experiência e entender de onde vêm os nossos contatos. Você pode aceitar ou recusar. Saiba mais na <a href="privacidade.html">Política de Privacidade</a>.</p>
+    <div class="acoes">
+      <button class="btn btn-primario" id="cookie-aceitar">Aceitar</button>
+      <button class="btn btn-vazado-navy" id="cookie-recusar">Recusar</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

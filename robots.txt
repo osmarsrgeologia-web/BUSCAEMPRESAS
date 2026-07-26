@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://outorgafacil.com.br/sitemap.xml
