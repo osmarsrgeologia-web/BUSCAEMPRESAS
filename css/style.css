@@ -451,3 +451,33 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible, .btn:focus-
 @media (max-width: 400px) {
   .logo-img { height: 36px; }
 }
+
+/* =====================================================================
+   HERO — fundo animado por imagens (slideshow crossfade + Ken Burns)
+   Imagens servidas do CDN do higgsfield (resolução cheia no navegador).
+   ===================================================================== */
+.hero-slides { position: absolute; inset: 0; z-index: 0; }
+.hero-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center center;
+  opacity: 0; will-change: opacity, transform;
+  animation: heroKB 30s infinite;
+  transform: scale(1.04);
+}
+.hero-slide.s1 { background-image: url("https://d8j0ntlcm91z4.cloudfront.net/user_3H3FyQ8E6HKsRoVtXDM5uRXmRjq/hf_20260726_203055_676ef355-4fa6-4cfd-9c96-99e7bf305735_min.webp"); animation-delay: 0s; }
+.hero-slide.s2 { background-image: url("https://d8j0ntlcm91z4.cloudfront.net/user_3H3FyQ8E6HKsRoVtXDM5uRXmRjq/hf_20260726_203125_676d3ec5-fc68-474c-beab-aa9eaf6d6917_min.webp"); animation-delay: 6s; }
+.hero-slide.s3 { background-image: url("https://d8j0ntlcm91z4.cloudfront.net/user_3H3FyQ8E6HKsRoVtXDM5uRXmRjq/hf_20260726_203123_e88172e7-0e02-4c60-894d-058aac2ae3b0_min.webp"); animation-delay: 12s; }
+.hero-slide.s4 { background-image: url("https://d8j0ntlcm91z4.cloudfront.net/user_3H3FyQ8E6HKsRoVtXDM5uRXmRjq/hf_20260726_203112_85a47d3b-bd4b-4735-8852-383988552781_min.webp"); animation-delay: 18s; }
+.hero-slide.s5 { background-image: url("https://d8j0ntlcm91z4.cloudfront.net/user_3H3FyQ8E6HKsRoVtXDM5uRXmRjq/hf_20260726_203114_dd7b7227-ae4d-4184-b9aa-282e06d15578_min.webp"); animation-delay: 24s; }
+@keyframes heroKB {
+  0%   { opacity: 0; transform: scale(1.04); }
+  4%   { opacity: 1; }
+  18%  { opacity: 1; }
+  21%  { opacity: 0; transform: scale(1.12); }
+  100% { opacity: 0; transform: scale(1.12); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide { animation: none; }
+  .hero-slide.s1 { opacity: 1; transform: none; }
+  .hero-slide.s2, .hero-slide.s3, .hero-slide.s4, .hero-slide.s5 { opacity: 0; }
+}

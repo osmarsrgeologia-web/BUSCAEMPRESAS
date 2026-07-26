@@ -13,11 +13,9 @@ servicos.html       4 blocos de serviço expandidos + faixa "Recebeu notificaç�
 sobre.html          Quem somos, como atuamos, área de atuação
 contato.html        Formulário (envia para o WhatsApp) + canais + LGPD
 privacidade.html    Política de Privacidade (LGPD)
-css/style.css       Toda a identidade visual — cores no bloco :root
+css/style.css       Identidade visual + fundo animado do hero — cores no :root
 js/script.js        Menu, WhatsApp, formulário, cookies, captura de UTMs
-img/                Logo, favicon, isolinhas e a pasta media/
-img/media/          Imagens fotográficas (geradas no higgsfield — ver abaixo)
-scripts/            baixar-imagens.sh (baixa as imagens do higgsfield)
+img/                Logo, favicon e isolinhas (as fotos vêm do CDN — ver abaixo)
 robots.txt · sitemap.xml
 ```
 
@@ -52,7 +50,6 @@ O site é estático — sobe em qualquer hospedagem. Opções fáceis:
 | Item | Onde preencher |
 |---|---|
 | **WhatsApp** (formato internacional, ex.: `5511915230152`) | `js/script.js`, variável `var WHATSAPP` no topo. Enquanto vazio, os botões avisam e o formulário cai para e-mail. |
-| **Imagens do higgsfield** | Rode `bash scripts/baixar-imagens.sh` na sua máquina (o ambiente onde o site foi gerado tem a saída para o CDN bloqueada). As imagens vão para `img/media/`. |
 | **CNPJ** | Não foi incluído (não inventamos). Se quiser exibir, adicione no rodapé e no JSON-LD (`ProfessionalService`) das páginas. |
 
 ### ✅ Já resolvido
@@ -65,21 +62,26 @@ O site é estático — sobe em qualquer hospedagem. Opções fáceis:
   (180×180) e `img/icon-512.png` (512×512). Para um `favicon.ico` clássico, converta
   o `favicon.svg` (opcional; navegadores modernos já usam o SVG).
 
-## Imagens (higgsfield)
+## Imagens e fundo animado (higgsfield)
 
 As 5 imagens fotográficas foram geradas com o higgsfield (modelo
-`nano_banana_pro`, 2k, 16:9). Elas existem no CDN do higgsfield, mas o
-download automático foi bloqueado pela política de rede do ambiente de
-geração. Para trazê-las:
+`nano_banana_pro`, 16:9) e são servidas **direto do CDN do higgsfield** na
+versão otimizada `_min.webp` (~120–430 KB cada). Não é preciso baixar nada:
+o navegador carrega as imagens automaticamente.
 
-```bash
-bash scripts/baixar-imagens.sh
-```
+- **Fundo animado do hero:** um *slideshow* que faz crossfade entre as 5
+  imagens com um leve zoom (Ken Burns), definido em `css/style.css` nos blocos
+  `.hero-slide` e `@keyframes heroKB`. Respeita `prefers-reduced-motion`.
+- **Cards e seções:** cada serviço usa a foto correspondente (também via CDN).
+- **Fallback:** se uma imagem não carregar, o bloco exibe o navy/gradiente da
+  paleta — o layout nunca fica "quebrado".
 
-O script baixa e (se houver ImageMagick) converte para JPG otimizado em
-`img/media/`, além de criar o `og-image.jpg` a partir do hero. **Sem essas
-imagens o site continua funcionando** — os blocos exibem um gradiente da
-paleta como fallback.
+### Quer as imagens hospedadas no seu próprio domínio?
+
+As URLs do CDN são públicas e estáveis, mas se preferir um site 100%
+self-contained, baixe as 5 imagens e troque as URLs
+`https://d8j0ntlcm91z4.cloudfront.net/...` por caminhos locais em
+`css/style.css` (hero) e nos `<img>` de `index/servicos/sobre.html`.
 
 ## Rastreamento (GA4 / Meta) — preparado e desligado
 
