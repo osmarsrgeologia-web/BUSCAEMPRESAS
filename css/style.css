@@ -56,11 +56,12 @@ a { color: var(--agua); text-decoration: none; }
 .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
 
 /* ---------- Tipografia ---------- */
-h1, h2, h3, h4 { font-family: var(--display); color: var(--navy); line-height: 1.18; font-weight: 700; letter-spacing: -.01em; }
-h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 800; }
-h2 { font-size: clamp(1.7rem, 3.6vw, 2.5rem); margin-bottom: 16px; }
+h1, h2, h3, h4 { font-family: var(--display); color: var(--navy); line-height: 1.18; font-weight: 700; letter-spacing: -.01em; text-wrap: balance; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 800; letter-spacing: -.025em; }
+h2 { font-size: clamp(1.7rem, 3.6vw, 2.5rem); margin-bottom: 16px; letter-spacing: -.02em; }
 h3 { font-size: 1.28rem; margin-bottom: 10px; }
 h4 { font-size: 1.05rem; }
+p { text-wrap: pretty; }
 p  { color: var(--texto); }
 .lead { font-size: 1.16rem; color: var(--texto-suave); max-width: 720px; }
 
@@ -135,7 +136,14 @@ p  { color: var(--texto); }
 .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
 .hero-bg::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(105deg, rgba(15,42,74,.94) 0%, rgba(15,42,74,.82) 42%, rgba(15,42,74,.45) 100%);
+  background:
+    radial-gradient(120% 90% at 12% 20%, rgba(18,165,196,.20) 0%, transparent 45%),
+    linear-gradient(105deg, rgba(15,42,74,.95) 0%, rgba(15,42,74,.84) 42%, rgba(15,42,74,.48) 100%);
+}
+/* grão sutil sobre o hero — quebra a chapa lisa sem pesar */
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
 }
 .hero .container { position: relative; z-index: 2; padding-top: 96px; padding-bottom: 100px; }
 .hero-conteudo { max-width: 720px; }
@@ -194,7 +202,7 @@ p  { color: var(--texto); }
 .passos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; counter-reset: passo; }
 .passo { position: relative; }
 .passo .num {
-  font-family: var(--display); font-weight: 800; font-size: 1.05rem; color: #fff;
+  font-family: var(--display); font-weight: 800; font-size: 1.05rem; color: #fff; font-variant-numeric: tabular-nums;
   width: 46px; height: 46px; border-radius: 12px; background: var(--agua);
   display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
   box-shadow: 0 8px 20px rgba(18,165,196,.3);
@@ -388,4 +396,44 @@ p  { color: var(--texto); }
   .secao { padding: 64px 0; }
   .hero .container { padding-top: 64px; padding-bottom: 72px; }
   .hero-confianca { gap: 14px; }
+}
+
+/* =====================================================================
+   REFINAMENTOS — micro-interações, foco acessível e reveal no scroll
+   ===================================================================== */
+
+/* Estado pressionado (clique físico) em tudo que é clicável */
+.btn:active { transform: translateY(1px) scale(.99); }
+.serv-card:active, .caso:active { transform: translateY(-2px); }
+.wpp-flut:active { transform: scale(1.02); }
+
+/* Foco visível para navegação por teclado (a11y) */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, summary:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--agua);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+.btn-wpp:focus-visible { outline-color: #25D366; }
+
+/* Link "pular para o conteúdo" (leitores de tela / teclado) */
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 300;
+  background: var(--navy); color: #fff; padding: 10px 18px; border-radius: 8px;
+  font-weight: 600; transition: top .2s ease;
+}
+.skip-link:focus { top: 12px; }
+
+/* Reveal escalonado ao entrar na viewport (progressive enhancement) */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); will-change: opacity, transform; }
+.reveal.vis { opacity: 1; transform: none; }
+.reveal.d1 { transition-delay: .06s; }
+.reveal.d2 { transition-delay: .12s; }
+.reveal.d3 { transition-delay: .18s; }
+.reveal.d4 { transition-delay: .24s; }
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
 }

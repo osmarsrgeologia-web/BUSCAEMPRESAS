@@ -158,11 +158,44 @@ var EMAIL = "comercial@outorgafacil.com.br";
     el.forEach(function (e) { e.textContent = new Date().getFullYear(); });
   }
 
+  /* ---------- Reveal escalonado ao rolar (progressive enhancement) ----------
+     As classes .reveal são adicionadas AQUI (via JS). Sem JS, nada fica oculto. */
+  function ligarReveal() {
+    var prefereMenos = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefereMenos || !("IntersectionObserver" in window)) return;
+
+    var alvos = document.querySelectorAll(
+      ".titulo-centro, .caso, .serv-card, .passo, .faq-item, .valor, .serv-bloco > div, .canal, .form-card, .sobre-img"
+    );
+    if (!alvos.length) return;
+
+    // agrupa por "linha" para escalonar o delay dentro de cada grupo
+    var grupos = {};
+    alvos.forEach(function (el) {
+      el.classList.add("reveal");
+      var pai = el.parentElement;
+      var chave = pai ? (pai.className || "root") : "root";
+      grupos[chave] = grupos[chave] || 0;
+      var i = grupos[chave] % 4;
+      if (i > 0) el.classList.add("d" + i);
+      grupos[chave]++;
+    });
+
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (ent) {
+        if (ent.isIntersecting) { ent.target.classList.add("vis"); obs.unobserve(ent.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+
+    alvos.forEach(function (el) { obs.observe(el); });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     capturarUTMs();
     ligarLinksWpp();
     ligarFormulario();
     ligarCookies();
     ano();
+    ligarReveal();
   });
 })();
