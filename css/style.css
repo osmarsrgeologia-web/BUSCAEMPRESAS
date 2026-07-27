@@ -470,10 +470,10 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible, .btn:focus-
 .hero-slide.s4 { background-image: url("https://d8j0ntlcm91z4.cloudfront.net/user_3H3FyQ8E6HKsRoVtXDM5uRXmRjq/hf_20260726_203112_85a47d3b-bd4b-4735-8852-383988552781_min.webp"); animation-delay: 18s; }
 .hero-slide.s5 { background-image: url("https://d8j0ntlcm91z4.cloudfront.net/user_3H3FyQ8E6HKsRoVtXDM5uRXmRjq/hf_20260726_203114_dd7b7227-ae4d-4184-b9aa-282e06d15578_min.webp"); animation-delay: 24s; }
 @keyframes heroKB {
-  0%   { opacity: 0; transform: scale(1.04); }
-  4%   { opacity: 1; }
-  18%  { opacity: 1; }
-  21%  { opacity: 0; transform: scale(1.12); }
+  0%   { opacity: 0; transform: scale(1.05); }
+  3%   { opacity: 1; }
+  20%  { opacity: 1; transform: scale(1.11); }
+  25%  { opacity: 0; transform: scale(1.12); }
   100% { opacity: 0; transform: scale(1.12); }
 }
 @media (prefers-reduced-motion: reduce) {
